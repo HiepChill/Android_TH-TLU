@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/Ftv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="Fahrenheit" />
+
+    <EditText
+        android:id="@+id/edtF"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Fill the F temperature"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/Ctv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="Celsius" />
+
+    <EditText
+        android:id="@+id/edtC"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Fill the C temperature"
+        android:ems="10"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_convertToC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="handleFC"
+            android:text="Convert to Celsius" />
+
+        <Button
+            android:id="@+id/btn_convertToF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="handleCF"
+            android:layout_weight="1"
+            android:text="Convert to Fahrenheit" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_Clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="handleClear"
+        android:text="Clear" />
+</LinearLayout>

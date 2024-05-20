@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bill Amount:"
+        android:id="@+id/billAmountLabel"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="8"
+        android:id="@+id/billAmountEditText"
+        android:text=""
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/billAmountLabel"
+        android:layout_toRightOf="@+id/billAmountLabel"
+        android:layout_toEndOf="@+id/billAmountLabel"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tip:"
+        android:id="@+id/percentLabel"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/percentDownButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15%"
+        android:id="@+id/percentTextView"
+        android:layout_alignTop="@+id/percentLabel"
+        android:layout_alignLeft="@+id/billAmountEditText"
+        android:layout_alignStart="@+id/billAmountEditText"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:text="-"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:id="@+id/percentDownButton"
+        android:layout_below="@+id/billAmountEditText"
+        android:layout_toLeftOf="@+id/percentUpButton"
+        android:layout_toStartOf="@+id/percentUpButton"
+        android:textSize="23sp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:text="+"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:id="@+id/percentUpButton"
+        android:layout_alignTop="@+id/percentDownButton"
+        android:layout_alignRight="@+id/billAmountEditText"
+        android:layout_alignEnd="@+id/billAmountEditText"
+        android:textSize="23sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tip amount:"
+        android:id="@+id/tipLabel"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/percentDownButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:id="@+id/tipTextView"
+        android:layout_alignTop="@+id/tipLabel"
+        android:layout_alignLeft="@+id/percentTextView"
+        android:layout_alignStart="@+id/percentTextView"
+        android:textSize="20sp" />
+
+    <!-- The total amount -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total:"
+        android:id="@+id/totalLabel"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/tipLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:id="@+id/totalTextView"
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/totalLabel"
+        android:layout_alignLeft="@+id/tipTextView"
+        android:layout_alignStart="@+id/tipTextView" />
+
+
+    <!-- Thêm các TextView và Button khác tương tự như trên dựa vào id và các thuộc tính định vị -->
+</RelativeLayout>
