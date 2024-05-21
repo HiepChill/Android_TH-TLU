@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#02d9c4"
-        android:text="Quản lý sinh viên"
+        android:text="Student Management"
         android:textAlignment="center"
         android:textColor="#D50000"
         android:textSize="23sp"
@@ -22,13 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:weightSum="10"
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Mã lớp:"
+            android:layout_weight="4"
+            android:text="ClassID"
             android:textColor="#3c4fb2"
             android:textSize="20sp"
             android:textStyle="bold"/>
@@ -37,7 +38,7 @@
             android:id="@+id/edtClassId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="7"
+            android:layout_weight="6"
             android:minHeight="48dp"
             android:hint="VD: K63CNTT.VA"/>
 
@@ -48,13 +49,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:weightSum="10"
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Tên lớp:"
+            android:layout_weight="4"
+            android:text="ClassName"
             android:textColor="#3c4fb2"
             android:textSize="20sp"
             android:textStyle="bold"/>
@@ -63,7 +65,7 @@
             android:id="@+id/edtClassName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="7"
+            android:layout_weight="6"
             android:minHeight="48dp"
             android:hint="VD: K63CNTT.VA"/>
 
@@ -73,13 +75,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:weightSum="10"
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Si số:"
+            android:layout_weight="4"
+            android:text="Student"
             android:textColor="#3c4fb2"
             android:textSize="20sp"
             android:textStyle="bold"/>
@@ -89,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:layout_weight="7"
+            android:layout_weight="6"
             android:inputType="number"
             android:minHeight="48dp"
             android:hint="VD: K63CNTT.VA"/>

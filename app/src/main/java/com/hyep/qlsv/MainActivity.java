@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             String sql = "CREATE TABLE tblop(malop TEXT primary key, tenlop TEXT, siso INTEGER)";
             database.execSQL(sql);
         } catch (Exception e) {
-            Toast.makeText(this, "Table đã tồn tại!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Table already exsist!", Toast.LENGTH_SHORT).show();
         }
 
         btnInsert.setOnClickListener(new View.OnClickListener() {
