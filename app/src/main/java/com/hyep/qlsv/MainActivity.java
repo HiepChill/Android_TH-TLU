@@ -1,6 +1,7 @@
 package com.hyep.qlsv;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     msg = "INSERT Success";
                 }
                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                refreshDB();
             }
         });
 
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     msg = "UPDATE Success";
                 }
                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                refreshDB();
             }
         });
 
@@ -111,9 +114,24 @@ public class MainActivity extends AppCompatActivity {
                     msg = "DELETE Success";
                 }
                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                refreshDB();
             }
         });
 
+    }
+
+    private void refreshDB() {
+        list.clear();
+        Cursor cursor = database.query("tblop", null, null, null, null, null, null);
+        cursor.moveToNext();
+        String data = "";
+        while (cursor.isAfterLast() == false) {
+            data = cursor.getString(0) + " - " + cursor.getString(1) + " - " + cursor.getString(2);
+            cursor.moveToNext();
+            list.add(data);
+        }
+        cursor.close();
+        adapter.notifyDataSetChanged();
     }
 
 }
