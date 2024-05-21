@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         edtNumberStudent =findViewById(R.id.edtNumberStudent);
         btnInsert = findViewById(R.id.btnInsert);
         btnDelete = findViewById(R.id.btnDelete);
-        btnQuery = findViewById(R.id.btnQuery);
         btnUpdate = findViewById(R.id.btnUpdate);
         listView = findViewById(R.id.lvList);
 
