@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:text="ClassID"
             android:textColor="#3c4fb2"
             android:textSize="20sp"
@@ -36,11 +36,11 @@
 
         <EditText
             android:id="@+id/edtClassId"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
-            android:minHeight="48dp"
-            android:hint="VD: K63CNTT.VA"/>
+            android:hint="ClassID"
+            android:minHeight="48dp" />
 
 
     </LinearLayout>
@@ -55,7 +55,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:text="ClassName"
             android:textColor="#3c4fb2"
             android:textSize="20sp"
@@ -63,11 +63,11 @@
 
         <EditText
             android:id="@+id/edtClassName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
-            android:minHeight="48dp"
-            android:hint="VD: K63CNTT.VA"/>
+            android:hint="ClassName"
+            android:minHeight="48dp" />
 
 
     </LinearLayout>
@@ -81,21 +81,21 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="Student"
+            android:layout_weight="3"
+            android:text="Students"
             android:textColor="#3c4fb2"
             android:textSize="20sp"
             android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/edtNumberStudent"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="6"
             android:inputType="number"
-            android:minHeight="48dp"
-            android:hint="VD: K63CNTT.VA"/>
+            android:hint="Number Student"
+            android:minHeight="48dp" />
 
 
     </LinearLayout>

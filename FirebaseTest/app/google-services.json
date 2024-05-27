@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "422983938010",
+    "project_id": "androidtest-69d0c",
+    "storage_bucket": "androidtest-69d0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422983938010:android:02795d0403d7a846ff1ae3",
+        "android_client_info": {
+          "package_name": "com.hyep.firebasetest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5_9XuPH87IApi1RQW4qcnIzJ1ZHqiosU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

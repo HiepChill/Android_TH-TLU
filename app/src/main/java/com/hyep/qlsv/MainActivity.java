@@ -23,10 +23,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtClassID, edtClassName, edtNumberStudent;
-    Button btnInsert, btnUpdate, btnDelete, btnQuery;
+    Button btnInsert, btnUpdate, btnDelete;
     ListView listView;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
+    ArrayList<String> listID;
     SQLiteDatabase database;
 
     @Override
@@ -47,8 +48,9 @@ public class MainActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         btnUpdate = findViewById(R.id.btnUpdate);
         listView = findViewById(R.id.lvList);
+        listID = new ArrayList<>();
 
-        list = new ArrayList<>();
+
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
 
