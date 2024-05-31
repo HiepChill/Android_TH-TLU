@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
         edtName = (EditText) findViewById(R.id.editTextName);
         edtEmail = (EditText) findViewById(R.id.editTextEmail);
         btnAdd = (Button) findViewById(R.id.buttonAdd);
@@ -58,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<>();
         studentList = new ArrayList<>();
         databaseHelper = new FirebaseDatabaseHelper();
+
+        loadStudents();
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
