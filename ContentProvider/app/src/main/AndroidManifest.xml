@@ -13,6 +13,24 @@
         android:theme="@style/Theme.ContentProvider"
         tools:targetApi="31">
         <activity
+            android:name=".DetailDepartment"
+            android:exported="false" />
+        <activity
+            android:name=".AddDepartment"
+            android:exported="false" />
+        <activity
+            android:name=".DepartmentPage"
+            android:exported="false" />
+        <activity
+            android:name=".DetailEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".AddEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeePage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

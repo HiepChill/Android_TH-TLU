@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailEmployee">
+
+    <ImageView
+        android:id="@+id/imgE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/edtEID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID" />
+
+    <EditText
+        android:id="@+id/edtEName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/edtEEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/edtEPos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Position" />
+
+    <EditText
+        android:id="@+id/edtEPhone"
+        android:layout_width="match_parent"
+        android:inputType="number"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number" />
+
+    <EditText
+        android:id="@+id/edtEDepartID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Department ID" />
+
+    <Button
+        android:id="@+id/btnUpdateEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit" />
+
+    <Button
+        android:id="@+id/btnDeleteEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete" />
+
+
+
+</LinearLayout>

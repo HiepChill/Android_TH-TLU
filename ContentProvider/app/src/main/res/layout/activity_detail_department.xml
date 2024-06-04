@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailDepartment">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/edtDID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID" />
+
+    <EditText
+        android:id="@+id/edtDName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/edtDEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/edtEWebsite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Website" />
+
+    <EditText
+        android:id="@+id/edtDAdress"
+        android:layout_width="match_parent"
+        android:inputType="number"
+        android:layout_height="wrap_content"
+        android:hint="Address" />
+
+    <EditText
+        android:id="@+id/edtDPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone" />
+
+    <EditText
+        android:id="@+id/edtDIDCom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID Company" />
+
+    <Button
+        android:id="@+id/btnEditDepartment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit" />
+    <Button
+        android:id="@+id/btnDeleteDepartment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete" />
+
+</LinearLayout>
