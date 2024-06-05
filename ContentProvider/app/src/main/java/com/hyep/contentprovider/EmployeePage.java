@@ -18,6 +18,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hyep.contentprovider.Helpers.EDatabseHelper;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class EmployeePage extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     private ArrayList<String> employeeList;
     private ArrayList<Integer> employeeIDs;
-    private Button btnAdd;
+    private FloatingActionButton btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +94,7 @@ public class EmployeePage extends AppCompatActivity {
                 String img = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_IMAGE));
                 String phone = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_PHONE));
                 String depID = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_ID_DEPARTMENT));
-                employeeList.add(name + " - " + email + " - " + pos + " - " + img + " - " + phone + " - " + depID);
+                employeeList.add(name + " - " +  phone);
                 employeeIDs.add(id);
             } while (cursor.moveToNext());
         }

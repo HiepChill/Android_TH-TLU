@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.hyep.contentprovider"
+    namespace = "com.hyep.test"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.hyep.contentprovider"
+        applicationId = "com.hyep.test"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -40,5 +40,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.google.android.material:material:1.12.0")
 }
