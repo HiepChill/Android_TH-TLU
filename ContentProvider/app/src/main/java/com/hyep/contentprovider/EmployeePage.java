@@ -94,7 +94,7 @@ public class EmployeePage extends AppCompatActivity {
                 String img = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_IMAGE));
                 String phone = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_PHONE));
                 String depID = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_ID_DEPARTMENT));
-                employeeList.add(name + " - " +  phone);
+                employeeList.add(name);
                 employeeIDs.add(id);
             } while (cursor.moveToNext());
         }

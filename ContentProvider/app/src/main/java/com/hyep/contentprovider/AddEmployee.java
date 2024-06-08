@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +18,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.hyep.contentprovider.Helpers.EDatabseHelper;
 
 public class AddEmployee extends AppCompatActivity {
-    EditText edtEID, edtEName, edtEEmail, edtEPos, edtEImage, edtEPhone, edtEDepID;
-    Button btnAddEmployee;
+    EditText edtEName, edtEEmail, edtEPos, edtEImage, edtEPhone, edtEDepID;
+    ImageButton btnAddEmployee, btnBack;
     EDatabseHelper dbHelper;
 
     @Override
@@ -32,20 +33,26 @@ public class AddEmployee extends AppCompatActivity {
             return insets;
         });
 
-        edtEID = findViewById(R.id.edtEID);
         edtEName = findViewById(R.id.edtEName);
         edtEEmail = findViewById(R.id.edtEEmail);
         edtEPos = findViewById(R.id.edtEPos);
-        edtEImage = findViewById(R.id.edtEImg);
         edtEPhone = findViewById(R.id.edtEPhone);
         edtEDepID = findViewById(R.id.edtEDepartID);
+        edtEImage = findViewById(R.id.edtEImage);
         btnAddEmployee = findViewById(R.id.btnAddEmployee);
+        btnBack = findViewById(R.id.btnBack);
         dbHelper = new EDatabseHelper(this);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         btnAddEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = edtEID.getText().toString();
                 String name = edtEName.getText().toString();
                 String email = edtEEmail.getText().toString();
                 String pos = edtEPos.getText().toString();
