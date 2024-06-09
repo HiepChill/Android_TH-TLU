@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -24,6 +27,7 @@ import com.hyep.baikiemtra.Helpers.EDatabseHelper;
 import com.hyep.baikiemtra.Listeners.OnERowClick;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton btnAdd;
     private RecyclerView rvEmployee;
     private EmployeeAdapter employeeAdapter;
+    private ListView lvEmployee;
+    private EditText edtSearch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +57,32 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new EDatabseHelper(this);
         employeeList = new ArrayList<>();
         employeeIDs = new ArrayList<>();
-        rvEmployee = findViewById(R.id.rvEmployee);
+        //rvEmployee = findViewById(R.id.rvEmployee);
+        lvEmployee = findViewById(R.id.lvEmployee);
+        edtSearch = findViewById(R.id.edtSearch);
 
-        rvEmployee.setHasFixedSize(true);
+        //rvEmployee.setHasFixedSize(true);
+
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                filterList(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
-//        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, employeeList);
-//        lvEmployee.setAdapter(adapter);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, employeeList);
+        lvEmployee.setAdapter(adapter);
 
         loadData();
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -67,25 +93,65 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        lvEmployee.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                int employeeID = employeeIDs.get(i);
-//                Intent myIntent2 = new Intent(MainActivity.this, DetailEmployee.class);
-//                myIntent2.putExtra("EMPLOYEE_ID", employeeID);
-//                startActivity(myIntent2);
-//            }
-//        });
+        lvEmployee.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                int employeeID = employeeIDs.get(i);
+                Intent myIntent2 = new Intent(MainActivity.this, DetailEmployee.class);
+                myIntent2.putExtra("EMPLOYEE_ID", employeeID);
+                startActivity(myIntent2);
+            }
+        });
     }
     public void loadData() {
-        employeeAdapter = new EmployeeAdapter(this, dbHelper.getAllData());
-        rvEmployee.setAdapter(employeeAdapter);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(EDatabseHelper.TABLE_EMPLOYEES, null, null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_ID));
+                String name = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_NAME));
+                String email = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_EMAIL));
+                String pos = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_POS));
+                String img = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_IMAGE));
+                String phone = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_PHONE));
+                String depID = cursor.getString(cursor.getColumnIndexOrThrow(EDatabseHelper.COLUMN_ID_DEPARTMENT));
+                employeeList.add(name);
+                employeeIDs.add(id);
+            } while (cursor.moveToNext());
+        }
+
+//        employeeAdapter = new EmployeeAdapter(this, dbHelper.getAllData());
+//        rvEmployee.setAdapter(employeeAdapter);
+
+
+        cursor.close();
+        db.close();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadData();
+    private void filterList(String text) {
+        if (text.equals("")) {
+            adapter.clear();
+            loadData();
+            adapter.notifyDataSetChanged();
+        }
+        else {
+            List<String> filteredList = new ArrayList<>();
+            for (String item : employeeList) {
+                if (item.toLowerCase().contains(text.toLowerCase())) {
+                    filteredList.add(item);
+                }
+            }
+            adapter.clear();
+            adapter.addAll(filteredList);
+            adapter.notifyDataSetChanged();
+        }
     }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        loadData();
+//    }
 
 }

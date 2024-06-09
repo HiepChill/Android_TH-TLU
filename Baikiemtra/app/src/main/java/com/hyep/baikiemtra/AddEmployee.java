@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -31,6 +32,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.hyep.baikiemtra.Helpers.EDatabseHelper;
 
+import java.util.ArrayList;
+
 
 public class AddEmployee extends AppCompatActivity {
 
@@ -46,6 +49,7 @@ public class AddEmployee extends AppCompatActivity {
     private String[] cameraPermission;
     private String[] storagePermission;
     private Uri imageUri;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -259,23 +263,48 @@ public class AddEmployee extends AppCompatActivity {
     }
 
     private void saveData() {
+//        String name = edtEName.getText().toString();
+//        String email = edtEEmail.getText().toString();
+//        String pos = edtEPos.getText().toString();
+//        String phone = edtEPhone.getText().toString();
+//        String depID = edtEDepID.getText().toString();
+//
+//        if (!name.isEmpty() || !phone.isEmpty() || !email.isEmpty() || !pos.isEmpty() || !depID.isEmpty()) {
+//            long id = dbHelper.insertEmployee(imageUri.toString(), name, phone, email, pos, depID);
+//
+//            Toast.makeText(getApplicationContext(), "Inserted "+id, Toast.LENGTH_SHORT).show();
+//            Intent myIntent = new Intent(AddEmployee.this, MainActivity.class);
+//            myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(myIntent);
+//            finish();
+//        }
+//        else {
+//            Toast.makeText(getApplicationContext(), "Please enter all fields", Toast.LENGTH_SHORT).show();
+//        }
+
         String name = edtEName.getText().toString();
         String email = edtEEmail.getText().toString();
         String pos = edtEPos.getText().toString();
+        String img = imageUri.toString();
         String phone = edtEPhone.getText().toString();
         String depID = edtEDepID.getText().toString();
 
-        if (!name.isEmpty() || !phone.isEmpty() || !email.isEmpty() || !pos.isEmpty() || !depID.isEmpty()) {
-            long id = dbHelper.insertEmployee(imageUri.toString(), name, phone, email, pos, depID);
 
-            Toast.makeText(getApplicationContext(), "Inserted "+id, Toast.LENGTH_SHORT).show();
-            Intent myIntent = new Intent(AddEmployee.this, MainActivity.class);
-            myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(myIntent);
-            finish();
-        }
-        else {
-            Toast.makeText(getApplicationContext(), "Please enter all fields", Toast.LENGTH_SHORT).show();
-        }
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(EDatabseHelper.COLUMN_NAME, name);
+        values.put(EDatabseHelper.COLUMN_EMAIL, email);
+        values.put(EDatabseHelper.COLUMN_POS, pos);
+        values.put(EDatabseHelper.COLUMN_IMAGE, img);
+        values.put(EDatabseHelper.COLUMN_PHONE, phone);
+        values.put(EDatabseHelper.COLUMN_ID_DEPARTMENT, depID);
+
+        db.insert(EDatabseHelper.TABLE_EMPLOYEES, null, values);
+        db.close();
+
+        Intent myIntent = new Intent(AddEmployee.this, MainActivity.class);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(myIntent);
+        finish();
     }
 }
