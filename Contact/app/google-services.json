@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1082489284276",
+    "project_id": "baiktra-4d5df",
+    "storage_bucket": "baiktra-4d5df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082489284276:android:831d50560a2a5b459559e1",
+        "android_client_info": {
+          "package_name": "com.hyep.contact"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3fHIQv5yPDWwYqeSf4JsAv_dVpXvovxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
